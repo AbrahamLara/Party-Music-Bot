@@ -17,8 +17,8 @@ Installing nvm on Windows:
 
 - Install nvm for windows from - https://github.com/coreybutler/nvm-windows
 - Check if nvm is installed by going to your command line and typing `nvm --v`
-- If it's installed, next: `nvm install 14.18.0`
-- Make sure you're on administrative privileges: `nvm use 14.18.0` (you can also type in "nvm use latest")
+- If it's installed, next: `nvm install 16.11.0`
+- Make sure you're on administrative privileges: `nvm use 16.11.0` (you can also type in "nvm use latest")
 - Check if npm and node are installed by typing `node -v` and `npm -v`
 
 
