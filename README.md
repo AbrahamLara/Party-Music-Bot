@@ -45,22 +45,23 @@ Go to File > Preferences > Settings > Workspace tab > then click the file icon o
 
 ![Image for VS Code](https://i.imgur.com/d8EKszE.png)
 
-
 Once you click that it should create and open your vs code settings for this specific workspace, make sure this piece of code below is included and saved:
 
-```javascript
+```JSON
     {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+      "files.eol": "\n",
+
+      "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
       },
-      "eslint.validate": ["javascript", "typescript"],
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode", 
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "eslint.validate": ["javascript", "typescript"],
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode", 
+      },
+      "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
     }
-}
 ```
 Note: "Windows" enforces the usage of Windows line endings: \r\n for CRLF. In your VS Code bottom right change CRLF to LF.
