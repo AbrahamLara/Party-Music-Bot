@@ -15,7 +15,35 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".ts"]
+            }
+        }
+    },
+    // Keep these rules in alphabetical order.,
     "rules": {
-        "no-console": "off"
+        "arrow-parens": ["error", "as-needed"],"import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "ts": "never"
+            }
+        ],
+        "function-paren-newline": "off",
+        "global-require": "off",
+        "implicit-arrow-linebreak": "off",
+        "import/no-dynamic-require": "off",
+        "import/first": "off",
+        "import/prefer-default-export": "off",
+        "max-len": ["error", 120],
+        "no-console": "off",
+        "no-restricted-syntax": "off",
+        "no-shadow": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "operator-linebreak": "off"
     }
 }
