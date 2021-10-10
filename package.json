@@ -4,7 +4,8 @@
   "description": "A discord bot created for use in a personal discord server.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon -r dotenv/config src/app.ts",
+    "deploy-commands": "ts-node -r dotenv/config src/deploy-commands.ts"
   },
   "repository": {
     "type": "git",

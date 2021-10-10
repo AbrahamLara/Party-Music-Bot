@@ -1,19 +1,20 @@
-import { Client, Collection } from 'discord.js';
-import { BotCommand, BotCommandName } from './utils/bot-utils';
+import { Client } from 'discord.js';
+import { BotCommandName } from './utils/bot-utils';
 import { BOT_TOKEN } from '../config.json';
-import { BotManager } from './BotManager';
 
 /**
  * The party bot class for initializing the bot in the server.
  */
 class PartyBot {
+  /**
+   * The bot client to use for setting listeners and handling commands.
+   *
+   * @private
+   */
   private client: Client;
 
-  private commands: Collection<BotCommandName, BotCommand>;
-
-  constructor(botManager: BotManager) {
-    this.client = botManager.client;
-    this.commands = botManager.commands;
+  constructor(client: Client) {
+    this.client = client;
   }
 
   /**
@@ -29,13 +30,13 @@ class PartyBot {
 
       // Use the command name provided from the interaction to retrieve the command object.
       const { commandName } = interaction;
-      const command = this.commands.get(commandName as BotCommandName);
 
       try {
-        // If the command doesn't exist, do nothing.
-        if (!command) return;
-        // Execute the command.
-        await command.execute(interaction);
+        const command = this.client.commands.get(commandName as BotCommandName);
+        // Execute command if it exists.
+        if (command) {
+          await command.execute(interaction);
+        }
       } catch (_: any) {
         await interaction.reply(`I'm having trouble handling /${commandName}`);
       }
