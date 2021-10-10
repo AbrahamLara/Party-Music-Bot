@@ -1,21 +1,19 @@
 import fs from 'fs';
 import path from 'path';
-import { Collection, Intents } from 'discord.js';
+import { Client, Collection, Intents } from 'discord.js';
 import PartyBot from './PartyBot';
-import { BotManager } from './BotManager';
 
 // Create a new client instance.
-const client = new BotManager({ intents: [Intents.FLAGS.GUILDS] });
-// Create a commands object in the client.
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+// Give the client object a collection for setting bot commands to make us of later.
 client.commands = new Collection();
 
 // Retrieve all the command files.
 const commandFiles = fs.readdirSync(path.join(__dirname, '/commands'));
-
+// Loop through the command files to convert the bot commands into json to add the bot commands to the client object's
+// commands collection object.
 for (const file of commandFiles) {
   const command = require(path.join(__dirname, `/commands/${file}`)).default;
-
-  // Set a new item in the Collection
   // With the key as the command name and the value as the exported module
   client.commands.set(command.data.name, command);
 }

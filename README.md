@@ -1,13 +1,10 @@
-
 # Party Music Bot
 A discord bot created for use in a personal discord server.
 
 ## Requirements
 - TypeScript
-- Node.JS v14
+- Node.JS v16
 - NVM v1.1.8
-
-
 
 ## Setup
 
@@ -20,7 +17,6 @@ Installing nvm on Windows:
 - If it's installed, next: `nvm install 16.11.0`
 - Make sure you're on administrative privileges: `nvm use 16.11.0` (you can also type in "nvm use latest")
 - Check if npm and node are installed by typing `node -v` and `npm -v`
-
 
 To finish setup complete the following:
 

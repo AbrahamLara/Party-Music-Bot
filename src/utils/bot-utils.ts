@@ -11,10 +11,13 @@ export enum BotCommandName {
 
 // An object of bot command descriptions.
 export const BOT_COMMAND_DESCRIPTION: Record<BotCommandName, string> = {
-  [BotCommandName.PLAY]: 'Makes the bot join the user channel',
-  [BotCommandName.LEAVE]: 'Makes the bot leave the user channel',
+  [BotCommandName.PLAY]: 'Plays a youtube video given a url or search term',
+  [BotCommandName.LEAVE]: 'Makes the bot leave a server channel',
 };
 
+/**
+ * An executable bot command.
+ */
 export interface BotCommand {
   /**
    * The slash command builder that creates a command for the bot to recognize.

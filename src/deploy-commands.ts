@@ -7,7 +7,8 @@ import { BOT_TOKEN, CLIENT_ID, GUILD_ID } from '../config.json';
 // An array of available bot commands.
 export const commands: any[] = [];
 const commandFiles = fs.readdirSync(path.join(__dirname, '/commands'));
-
+// Loop through the command files to convert the bot commands into json to include in our PUT request that will update
+// the bot commands.
 for (const file of commandFiles) {
   const command = require(path.join(__dirname, `/commands/${file}`)).default;
   commands.push(command.data.toJSON());

@@ -7,7 +7,7 @@ import {
 const command: BotCommand = {
   data: newSlashCommand(BotCommandName.PLAY),
   execute: async interaction => {
-    await interaction.reply('Pong!');
+    await interaction.reply('Play youtube video!');
   },
 };
 

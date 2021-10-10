@@ -24,7 +24,11 @@
     },
     // Keep these rules in alphabetical order.,
     "rules": {
-        "arrow-parens": ["error", "as-needed"],"import/extensions": [
+        "arrow-parens": ["error", "as-needed"],
+        "function-paren-newline": "off",
+        "global-require": "off",
+        "implicit-arrow-linebreak": "off",
+        "import/extensions": [
             "error",
             "ignorePackages",
             {
@@ -32,11 +36,8 @@
                 "ts": "never"
             }
         ],
-        "function-paren-newline": "off",
-        "global-require": "off",
-        "implicit-arrow-linebreak": "off",
-        "import/no-dynamic-require": "off",
         "import/first": "off",
+        "import/no-dynamic-require": "off",
         "import/prefer-default-export": "off",
         "max-len": ["error", 120],
         "no-console": "off",
