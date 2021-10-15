@@ -1,3 +1,4 @@
+import { CommandInteraction } from 'discord.js';
 import {
   BotCommand,
   BotCommandName,
@@ -7,7 +8,7 @@ import {
 const command: BotCommand = {
   data: newSlashCommand(BotCommandName.PLAY),
   execute: async interaction => {
-    await interaction.reply('Play youtube video!');
+    await (interaction as CommandInteraction).reply('Play youtube video!');
   },
 };
 

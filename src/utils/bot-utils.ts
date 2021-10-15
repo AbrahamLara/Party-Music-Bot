@@ -1,18 +1,19 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { CommandInteraction } from 'discord.js';
-
+import { CommandInteraction, Interaction } from 'discord.js';
 /**
  * A set of available bot command names.
  */
 export enum BotCommandName {
   PLAY = 'play',
   LEAVE = 'leave',
+  JOIN = 'join'
 }
 
 // An object of bot command descriptions.
 export const BOT_COMMAND_DESCRIPTION: Record<BotCommandName, string> = {
   [BotCommandName.PLAY]: 'Plays a youtube video given a url or search term',
   [BotCommandName.LEAVE]: 'Makes the bot leave a server channel',
+  [BotCommandName.JOIN]: 'Makes the bot join a server channel',
 };
 
 /**
@@ -29,7 +30,7 @@ export interface BotCommand {
    *
    * @param interaction An interaction object.
    */
-  execute: (interaction: CommandInteraction) => Promise<void>;
+  execute: (interaction: Interaction) => Promise<void>;
 }
 
 /**
