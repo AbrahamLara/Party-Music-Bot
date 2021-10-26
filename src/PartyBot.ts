@@ -1,6 +1,6 @@
 import { Client } from 'discord.js';
-import { BotCommandName } from './utils/bot-utils';
 import { BOT_TOKEN } from '../config.json';
+import { getBotCommandDetails } from './utils/message-utils';
 
 /**
  * The party bot class for initializing the bot in the server.
@@ -25,20 +25,24 @@ class PartyBot {
       console.log('Party bot ready!');
     });
 
-    this.client.on('interactionCreate', async interaction => {
-      if (!interaction.isCommand()) return;
-
-      // Use the command name provided from the interaction to retrieve the command object.
-      const { commandName } = interaction;
+    this.client.on('messageCreate', async message => {
+      const botCommandDetails = getBotCommandDetails(message.content);
+      // If we were not able to extract a bot command name, the user is not attempting to use the music bot and the bot
+      // should do nothing.
+      if (!botCommandDetails) return;
 
       try {
-        const command = this.client.commands.get(commandName as BotCommandName);
+        const { name, value } = botCommandDetails;
+        // Use the command name provided from the interaction to retrieve the command object.
+        const command = this.client.commands.get(name);
         // Execute command if it exists.
         if (command) {
-          await command.execute(interaction);
+          await command.execute(message, value);
         }
-      } catch (_: any) {
-        await interaction.reply(`I'm having trouble handling /${commandName}`);
+      } catch (error) {
+        await message.reply(
+          `I'm having trouble handling /${botCommandDetails}`,
+        );
       }
     });
 
