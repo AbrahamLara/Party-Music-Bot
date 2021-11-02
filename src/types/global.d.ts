@@ -6,16 +6,6 @@ declare global {
        * Discord bot token.
        */
       BOT_TOKEN: string;
-
-      /**
-       * Discord application client id.
-       */
-      CLIENT_ID: string;
-
-      /**
-       * Discord server id.
-       */
-      GUILD_ID: string;
     }
   }
 }

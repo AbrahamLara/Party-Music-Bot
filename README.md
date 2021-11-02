@@ -1,14 +1,23 @@
 # Party Music Bot
-A discord bot created for use in a personal discord server.
+A discord bot created for use in a personal discord server. This bot is inspired by the discord example music bot: 
+https://github.com/discordjs/voice/tree/main/examples/music-bot
+
+Table of contents:
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [VS Code Setup](#vs-code-setup)
+- [Developing](#developing)
 
 ## Requirements
 - TypeScript
-- Node.JS v16
 - NVM v1.1.8
+- Node.JS v16
+- FFMPEG
+- Python >= 2
 
 ## Setup
 
-It's recommended to use nvm to install node version 14.x.x.  On macOS/Ubuntu install nvm using brew. 
+It's recommended to use nvm to install node version 16.x.x. On macOS/Ubuntu install nvm using brew. 
 
 Installing nvm on Windows:
 
@@ -22,13 +31,9 @@ To finish setup complete the following:
 
 - Install TypeScript globally: `npm install typescript -g`
 - Install packages: `npm install`
+- Check if npm and node are installed by typing `node -v` and `npm -v`
 
-
-## Developing
-
-- Run application: `npm run dev`
-
-## VS Code Instructions for ESLint
+## VS Code Setup
 
  Extensions required: 
  - Name: Prettier - Code formatter
@@ -53,7 +58,7 @@ Once you click that it should create and open your vs code settings for this spe
         "eslint.validate": ["javascript", "typescript"],
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode", 
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
       },
       "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -61,3 +66,8 @@ Once you click that it should create and open your vs code settings for this spe
     }
 ```
 Note: "Windows" enforces the usage of Windows line endings: \r\n for CRLF. In your VS Code bottom right change CRLF to LF.
+
+## Developing
+
+- Create a `config.json` file in the root directory of this project using the [config.sample.json](config.sample.json).
+- Run application: `npm run dev`
